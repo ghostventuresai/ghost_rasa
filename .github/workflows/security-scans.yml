@@ -17,7 +17,7 @@ jobs:
       docker: ${{ steps.filter.outputs.docker }}
       docs: ${{ steps.filter.outputs.docs }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
       - uses: RasaHQ/pr-changed-files-filter@c4f7116a04b8a4596313469429e2ad235f59d9c4
         id: filter
         with:
@@ -28,7 +28,7 @@ jobs:
     name: Detecting hardcoded secrets
     runs-on: ubuntu-20.04
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v6
       with:
         # Fetch all history for all tags and branches
         fetch-depth: '0'
@@ -81,7 +81,7 @@ jobs:
     steps:
       - name: Checkout git repository 🕝
         if: needs.changes.outputs.backend == 'true'
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
 
       - name: Set up Python 3.9 🐍
         if: needs.changes.outputs.backend == 'true'
@@ -139,7 +139,7 @@ jobs:
   snyk:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
       - name: Run Snyk Open Source to check for Python vulnerabilities
         uses: snyk/actions/python-3.8@master
         continue-on-error: true

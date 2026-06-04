@@ -39,7 +39,7 @@ jobs:
       docker: ${{ steps.changed-files.outputs.docker || steps.run-all.outputs.docker }}
       docs: ${{ steps.changed-files.outputs.docs || steps.run-all.outputs.docs }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
       - uses: RasaHQ/pr-changed-files-filter@c4f7116a04b8a4596313469429e2ad235f59d9c4
         # Run the normal filters if the all-tests-required label is not set
         id: changed-files
@@ -67,7 +67,7 @@ jobs:
 
     steps:
       - name: Checkout git repository 🕝
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
 
       - name: Install version library
         run: |
@@ -102,7 +102,7 @@ jobs:
 
     steps:
       - name: Checkout git repository 🕝
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
 
       - name: Set up Python 3.9 🐍
         uses: actions/setup-python@b55428b1882923874294fa556849718a1d7f2ca5
@@ -192,7 +192,7 @@ jobs:
     steps:
       - name: Checkout git repository 🕝
         if: needs.changes.outputs.docs == 'true'
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
 
       - name: Set up Python 3.9 🐍
         if: needs.changes.outputs.docs == 'true'
@@ -286,7 +286,7 @@ jobs:
 
     steps:
       - name: Checkout git repository 🕝
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
 
       - name: Set up Node 12.x 🦙
         uses: actions/setup-node@v3.4.1
