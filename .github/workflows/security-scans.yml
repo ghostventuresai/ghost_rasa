@@ -43,7 +43,7 @@ jobs:
         security-checks: 'secret'
     - name: Alert on secret finding
       if: steps.trivy.outcome == 'failure'
-      uses: slackapi/slack-github-action@936158bbe252e9a6062e793ea4609642c966e302
+      uses: slackapi/slack-github-action@45a88b9581bfab2566dc881e2cd66d334e621e2c
       with:
         payload: |
           {
